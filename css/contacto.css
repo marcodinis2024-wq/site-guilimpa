@@ -1,0 +1,257 @@
+/* ================= PAGE STRUCTURE ================= */
+
+main {
+    padding-top: 4rem; /* Compensação da Navbar fixa */
+}
+
+/* ================= ORÇAMENTO EXPLICATIVO ================= */
+
+.orcamento-explicativo {
+    padding: 5rem 2rem;
+    background-color: #fff;
+}
+
+.orcamento-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.orcamento-imagem img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
+.tag-verde {
+    background: #e6f7ed;
+    color: #05ac46;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.orcamento-conteudo h2 {
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
+    color: #1a1a1a;
+}
+
+.orcamento-conteudo p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* GRID DE PARÂMETROS */
+.parametros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.parametro-item {
+    display: flex;
+    gap: 15px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.parametro-item i {
+    color: #05ac46;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.parametro-item h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #1a1a1a;
+}
+
+.parametro-item p {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* CICLO DE COMUNICAÇÃO */
+.ciclo-comunicacao {
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.ciclo-comunicacao h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.ciclo-passos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.passo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.numero {
+    background: #000;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.passo.destaque {
+    background: #05ac46;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.passo.destaque i {
+    color: #fff;
+}
+
+.passo.destaque p {
+    color: #fff;
+    margin: 0;
+}
+
+.orcamento-acao {
+    margin-top: 2.5rem;
+}
+
+/* ================= CONTACTO FORM PAGE ================= */
+
+.contacto-pagina {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contacto-pagina h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #05ac46;
+    text-align: center;
+}
+
+.contacto-pagina p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #666;
+    text-align: center;
+}
+
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #fff;
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 25px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-contacto label {
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.form-contacto input:focus,
+.form-contacto select:focus,
+.form-contacto textarea:focus {
+    border-color: #05ac46;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(5, 172, 70, 0.1);
+    outline: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 50px;
+    background-color: #05ac46;
+    color: #fff !important;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+    .orcamento-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .orcamento-imagem {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    .parametros-grid {
+        grid-template-columns: 1fr;
+    }
+    .contacto-pagina h1 {
+        font-size: 2rem;
+    }
+}

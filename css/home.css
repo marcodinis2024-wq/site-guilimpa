@@ -1,0 +1,1297 @@
+/* ================= HERO SECTION (SLIDER LOCAL) - CORREÇÃO DE MARGENS ================= */
+
+.hero {
+    width: 100%;
+    /* Removemos qualquer padding lateral que possa existir no base.css ou layout.css */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    
+    padding-top: 100px; /* Mantém o espaço da navbar */
+    background: #ffffff;
+    position: relative;
+    overflow: hidden; /* Garante que nada transborda para os lados */
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    /* Se as margens persistirem, descomenta a linha abaixo para forçar a largura total do ecrã: */
+    /* width: 100vw; left: 50%; transform: translateX(-50%); */
+    
+    padding-top: 32.1429%; /* Mantém a proporção perfeita */
+    margin: 0;
+}
+
+.slide-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 38.%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+
+.slide-item.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    /* O 'cover' faz com que a imagem estique para preencher tudo sem deixar bordas */
+    object-fit: cover; 
+    display: block;
+    pointer-events: none;
+}
+
+/* CONTENTOR DO BOTÃO */
+.botao-overlay {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; 
+}
+
+/* ESTILO DOS BOTÕES */
+.btn-banner {
+    pointer-events: auto; 
+    background-color: #05ac46;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.6rem;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    position: absolute;
+}
+
+.btn-banner:hover {
+    background-color: #16cf5d;
+    transform: scale(1.05);
+}
+
+/* ================= AJUSTE DO BOTÃO 1 (Banner Cinza) ================= */
+/* ================= AJUSTE DO BOTÃO 1 (Banner Cinza) ================= */
+.btn-banner-1 {
+    padding: 15px 100px;
+    bottom: 8%;
+    left: 50%;
+    /* O segredo é manter este transform sempre presente */
+    transform: translateX(-50%); 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+/* CORREÇÃO DO CLIQUE (STATE ACTIVE) */
+.btn-banner-1:active {
+    /* Mantemos o -50% para ele não fugir para a direita */
+    /* Diminuímos o scale para 0.98 para dar um efeito de "premir" suave */
+    transform: translateX(-50%) scale(0.98); 
+    transition: transform 0.1s ease; /* Resposta rápida ao clique */
+}
+
+/* AJUSTE DO HOVER PARA NÃO CONFLITUAR */
+.btn-banner-1:hover {
+    background-color: #16cf5d;
+    /* No hover ele cresce um pouco, mas mantém o centro */
+    transform: translateX(-50%) scale(1.03);
+}
+
+/* ================= MANUTENÇÃO DO BOTÃO 2 (Banner Verde) ================= */
+.btn-banner-2 {
+    margin-bottom: 8%;
+    padding: 18px 150px;
+    bottom: 7%;
+    left: 39px;
+    margin-left: 40px;
+    /* Como este botão não usa translateX(-50%), o clique é mais simples */
+    transform: none;
+    
+}
+
+.btn-banner-2:active {
+    transform: scale(0.98);
+}
+/* ================= SERVIÇOS DESTAQUE ================= */
+
+.servicos-destaque {
+    padding: 4rem 1.5rem;
+    background-color: var(--color-bg-light);
+    ;
+}
+
+.servicos-destaque h3 {
+    color: #16cf5d;
+    
+}
+
+.servicos-destaque h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 8rem;
+    justify-content: center;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+/* CARD BASE */
+.servico-card {
+    position: relative;
+    min-height: 360px;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.452);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    text-decoration: none; /* torna clicável sem sublinhado */
+    cursor: pointer;
+}
+
+/* SOMBRA BRANCA TRANSLÚCIDA POR CIMA */
+.servico-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0); /* sombra branca translúcida */
+    z-index: 0;
+    border-radius: 20px;
+}
+
+/* OVERLAY ESCURO */
+.servico-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0),
+        rgba(0, 0, 0, 0.226)
+    );
+    z-index: 0;
+    border-radius: 20px;
+}
+
+/* TEXTO POR CIMA */
+
+.servico-card h3,
+.servico-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.servico-card h3 {
+    margin-bottom: 0rem;
+    font-size: 1.25rem;
+}
+
+.servico-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* HOVER */
+.servico-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.11);
+}
+
+/* IMAGENS DE FUNDO */
+.servico-card:nth-child(1) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/obra.png") center / cover no-repeat;
+}
+
+.servico-card:nth-child(2) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/industrial.png") center / cover no-repeat;
+}
+
+.servico-card:nth-child(3) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/saude.png") center / cover no-repeat;
+}
+
+.servico-card:nth-child(4) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/altura.png") center / cover no-repeat;
+}
+
+.servico-card:nth-child(5) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/estacionamento.png") center / cover no-repeat;
+}
+
+.servico-card:nth-child(6) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/publicos.jpeg") center / cover no-repeat;
+}
+
+.servico-card:nth-child(7) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/ensino.png") center / cover no-repeat;
+}
+
+.servico-card:nth-child(8) {
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.15), rgba(0,0,0,0)),
+        url("../assets/images/servicos/comercial.png") center / cover no-repeat;
+}
+
+
+/* ================= QUEM SOMOS index.html ================= */
+
+.sobre {
+    padding: 0rem 2rem;
+    background-color: var(--color-bg-light);
+}
+
+.sobre h2 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    color: var(--color-primary);
+}
+
+.sobre-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* mais espaço para os slides */
+    gap: 3.5rem;
+    align-items: start;
+}
+
+/* SLIDES */
+.sobre-slides {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    text-align: center;
+    min-height: 500px; /* maior bloco */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.slide {
+    display: none;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.ativo {
+    display: flex;
+}
+
+.slide img {
+    width: 160px; /* maior imagem */
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    display: block;
+    border: 4px solid var(--color-primary); /* destaque */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.slide h4 {
+    margin: 0.5rem 0 0.3rem;
+    font-weight: 700;
+    font-size: 1.2rem; /* maior nome */
+}
+
+.slide span {
+    font-size: 1rem; /* maior cargo */
+    color: var(--color-text-muted);
+    margin-bottom: 1.2rem;
+}
+
+/* LABELS */
+.slide-labels {
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 2rem;
+}
+
+.slide-labels .label {
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background: #eee;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.slide-labels .label:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.slide-labels .label.ativo {
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ================= HISTÓRIA SCROLL ================= */
+.sobre-historia {
+    display: flex;
+    flex-direction: row; /* imagem à esquerda, texto à direita */
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre-historia img {
+    width: 45%; /* imagem ocupa metade do espaço */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.historia-texto {
+    width: 60%; /* ocupa o resto do espaço */
+    max-height: 400px; /* altura máxima fixa */
+    overflow-y: auto; /* adiciona scroll vertical */
+    padding-right: 1rem; /* espaço para scrollbar */
+}
+
+/* scrollbar estilizado */
+.historia-texto::-webkit-scrollbar {
+    width: 8px;
+}
+
+.historia-texto::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.historia-texto::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 8px;
+}
+
+.historia-texto::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* textos da história */
+.historia-texto h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.historia-texto p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ================= GOOGLE REVIEWS ================= */
+.reviews-google {
+    padding: 5rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.reviews-google h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-primary);
+}
+
+.google-reviews-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Ajusta borda e sombra do widget para combinar com o site */
+.google-reviews-wrapper iframe,
+.google-reviews-wrapper .eapps-google-reviews {
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ================= EQUIPA ================= */
+.equipa {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.equipa h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.equipa-intro {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.equipa-card {
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0);
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.equipa-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 70%;
+    margin-bottom: 6rem;
+    border: 6px solid var(--color-primary);
+    box-shadow: 0 5px 20px rgba(0, 0, 1, 0.63);
+}
+
+.equipa-card p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.equipa-card span {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+
+.equipa-card img {
+    width: 100%;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 5px 20px rgba(0,0,0,00);
+}
+
+.equipa-card p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.equipa-card span {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.antes-depois-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.antes-depois-wrapper h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+/* --- Contentor Principal (Mais largo) --- */
+.antes-depois-wrapper {
+    max-width: 95%; /* Ocupa quase a largura total da página */
+    margin: 4rem auto;
+}
+
+.antes-depois-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px; /* Espaço entre os cards */
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* --- Card: Mais largo e menos alto --- */
+.antes-depois-card {
+    flex: 0 0 calc(33.333% - 20px); 
+    position: relative;
+    background: #05ac46;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* --- Fix do Efeito Antes/Depois --- */
+.imagem-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px; /* Altura reduzida para parecer mais largo */
+    overflow: hidden;
+}
+
+.imagem-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* A imagem "Depois" fica por cima, invisível */
+.imagem-wrapper .depois {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* CORREÇÃO DO HOVER: Quando passa o rato no CARD, mostra a imagem DEPOIS */
+.antes-depois-card:hover .depois {
+    opacity: 1;
+}
+
+.antes-depois-card:hover .antes {
+    transform: scale(1.05); /* Pequeno zoom para dar vida */
+}
+
+/* Legenda Verde */
+.antes-depois-card p {
+    padding: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #05ac46;
+    margin: 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Esconder setas (Automação total) */
+.carousel-arrow {
+    display: none !important;
+}
+/* ================= SECÇÃO ORÇAMENTO EXPLICATIVO (CORRIGIDA) ================= */
+.orcamento-explicativo {
+    padding: 0; 
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.orcamento-container {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 80px;
+}
+
+.orcamento-imagem {
+    flex: 1;
+    max-width: 45%; 
+    height: 85%;
+}
+
+.orcamento-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0 20px 20px 0; 
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+}
+
+.orcamento-conteudo {
+    flex: 1.2;
+    padding: 4rem 4rem 4rem 0;
+}
+
+.tag-verde {
+    color: #05ac46;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.orcamento-conteudo h2 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.orcamento-conteudo p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2.5rem;
+}
+
+/* GRELHA DO CICLO DE ATENDIMENTO */
+.parametros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.parametro-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.parametro-item i {
+    color: #05ac46;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+/* ESTILO ESPECÍFICO PARA O DESTAQUE DE 24-48H */
+.item-destaque-atendimento {
+    background: rgba(5, 172, 70, 0.08); /* Fundo suave para realçar */
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #05ac46;
+    grid-column: span 1; /* Mantém na grelha */
+}
+
+.item-destaque-atendimento i {
+    font-size: 1.8rem; /* Ícone um pouco maior */
+}
+
+.parametro-item h4 {
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.parametro-item p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.orcamento-acao .btn-primary {
+    padding: 15px 40px;
+    background-color: #05ac46;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.orcamento-acao .btn-primary:hover {
+    background-color: #16cf5d;
+}
+
+/* ================= CTA TRABALHAR PREMIUM ================= */
+
+.cta-trabalhar {
+    margin: 6rem auto 4rem auto;
+    padding: 4.5rem 2rem;
+    max-width: 1200px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+
+    /* Gradiente verde elegante */
+    background: linear-gradient(135deg, #05ac46 0%, #04913b 100%);
+
+    /* Estado inicial para animação */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Classe ativada pelo JS */
+.cta-trabalhar.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* IMAGEM DE FUNDO */
+.cta-trabalhar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/images/imgcta/fundo.png") center/cover no-repeat;
+    opacity: 0.12;
+    z-index: 1;
+}
+
+/* Conteúdo acima da imagem */
+.cta-conteudo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.cta-conteudo h2 {
+    color: #ffffff;
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.cta-conteudo p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* BOTÃO */
+.cta-botao {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: #ffffff;
+    color: #05ac46;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-botao:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-3px);
+}
+/* =================================================
+   AJUSTE HERO BANNER - MOBILE (VERSÃO COMPACTA)
+   ================================================= */
+@media (max-width: 900px) {
+    
+    /* 1. Troca para as imagens específicas de Mobile */
+    .slide-item:nth-child(1) img {
+        content: url("../assets/images/banner-mobile1.png") !important;
+    }
+
+    .slide-item:nth-child(2) img {
+        content: url("../assets/images/banner-mobile2.png") !important;
+    }
+
+    /* 2. Ajuste do Container para o formato Vertical */
+    .hero {
+        padding-top: 75px !important; /* Espaço da navbar */
+        overflow: hidden;
+    }
+
+    .slider-container {
+        /* 140% a 150% garante que a imagem vertical caiba inteira sem zoom lateral */
+        padding-top: 35% !important; 
+        height: 0 !important; /* Reset da altura fixa */
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* 3. Comportamento da Imagem */
+    .slide-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important; /* 'contain' garante que a imagem apareça TODA */
+        object-position: center top !important;
+        background-color: #000; /* Fundo preto caso a imagem seja menor que o visor */
+    }
+
+    /* 4. Ajuste do Conteúdo (Texto e Botão) */
+    .slide-content {
+        padding: 0 10%;
+        width: 100% !important;
+        top: 60% !important; /* Empurra o texto mais para baixo para não tapar o rosto/foco da foto */
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .slide-content h2 {
+        font-size: 1.7rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Melhora leitura sobre a imagem */
+    }
+
+    /* 5. Ajuste dos Botões */
+    .btn-banner-1 {
+        padding: 6px 15px !important;
+        font-size: 0.7rem !important;
+        display: inline-block !important;
+        width: auto !important;
+        margin-left: 15px !important;
+        margin-bottom: 35px ;
+    }
+    .btn-banner-2 {
+        margin-bottom: 25px ;
+        padding: 6px 20px !important;
+        font-size: 0.9rem !important;
+        display: inline-block !important;
+        width: auto !important;
+        left: 23% !important;
+        transform: translateX(-50%) !important; /* Centraliza o segundo botão também */
+    }
+}
+
+
+/* =================================================
+   SECÇÃO SERVIÇOS - MOBILE (2 COLUNAS LADO A LADO)
+   ================================================= */
+@media (max-width: 900px) {
+
+    .servicos {
+        padding: 40px 0 !important; /* Reduz o espaçamento vertical da secção */
+    }
+    .servicos-destaque  {
+         padding-top: 30px !important;
+    
+        margin-bottom: 0px !important;
+    }
+    .servicos-destaque h2 {
+        margin-bottom: 20px !important;
+    }
+
+    .servicos-header {
+        margin-bottom: 25px !important;
+        padding: 0 15px !important;
+    }
+.servicos-destaque h2 {
+        font-size: 1.8rem !important; /* Título principal mais pequeno */
+    }
+    .servicos-header h2 {
+        font-size: 1.6rem !important; /* Título da secção mais pequeno */
+    }
+
+    /* Ajuste da Grelha para 2 Colunas */
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; /* Espaço reduzido entre os cards */
+        padding: 0 12px !important;
+    }
+
+    /* Compactação do Card */
+    .servico-card {
+        padding: 20px 12px !important; /* Redução drástica do respiro interno */
+        border-radius: 15px !important;
+        min-height: 240px !important; /* Garante que os cards mantêm a mesma altura */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Mantém o link sempre no fundo */
+    }
+
+    /* Redução do Ícone */
+    .card-icon {
+        width: 50px !important;
+        height: 50px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .card-icon img {
+        max-width: 25px !important; /* Ícone mais pequeno dentro do círculo */
+    }
+
+    /* Ajuste de Textos nos Cards */
+    .servico-card h3 {
+        font-size: 0.9rem !important; /* Título do serviço compacto */
+        margin-top: 110px !important;
+        line-height: 1.2 !important;
+    }
+
+    .servico-card p {
+        font-size: 0.72rem !important; /* Texto de descrição pequeno */
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        /* Limita a 3 linhas para evitar que um card fique muito maior que o outro */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .card-link {
+        font-size: 0.75rem !important;
+        gap: 5px !important;
+    }
+}
+
+/* =================================================
+   SECÇÃO ORÇAMENTOS - MOBILE (COMPACTAÇÃO TOTAL)
+   ================================================= */
+@media (max-width: 900px) {
+
+    .orcamento-seccao {
+        padding: 30px 15px !important; /* Reduz o respiro lateral da secção */
+    }
+
+    .orcamento-container {
+        flex-direction: column !important; /* Empilha: Imagem em cima, texto em baixo */
+        gap: 20px !important;
+    }
+
+    /* 1. Ajuste da Imagem para que apareça no visor */
+    .orcamento-imagem {
+        order: 1 !important; /* Garante que a imagem é a primeira coisa a aparecer */
+        max-width: 100% !important;
+        height: 200px !important; /* Altura fixa para não ocupar o ecrã todo */
+        display: block !important;
+    }
+
+    .orcamento-imagem img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Corta a imagem para caber no retângulo sem deformar */
+        border-radius: 15px !important;
+    }
+
+    /* 2. Ajuste do Conteúdo de Texto */
+    .orcamento-conteudo {
+        order: 2 !important;
+        padding: 0 !important;
+        text-align: center;
+    }
+
+    .orcamento-conteudo h2 {
+        padding-left: 10%;
+        justify-content: center;
+        font-size: 1.2rem !important; /* Título mais pequeno */
+        margin-bottom: 10px !important;
+    }
+
+    .orcamento-texto {
+        font-size: 0.85rem !important; /* Texto explicativo compacto */
+        line-height: 1.4 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 3. Grelha de Parâmetros (2 Colunas para poupar espaço) */
+    .parametros-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 itens por linha */
+        gap: 10px !important;
+        text-align: left;
+    }
+
+    .parametro-item {
+        padding: 10px !important;
+        background: #f9f9f9;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .parametro-item i {
+        font-size: 0.9rem !important; /* Ícone pequeno */
+        color: #000;
+    }
+
+    .parametro-item span {
+        font-size: 0.75rem !important; /* Texto do parâmetro bem pequeno */
+        font-weight: 600;
+    }
+}
+
+/* =================================================
+   ANTES E DEPOIS - MOBILE (AJUSTE DE PREENCHIMENTO)
+   ================================================= */
+@media (max-width: 900px) {
+    
+    .carousel-track-wrapper {
+        padding: 0 5% !important;
+        overflow: hidden;
+    }
+
+   .antes-depois-card {
+        display: flex !important;
+        flex-direction: column !important;
+        margin-left: px;
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+        padding: 0 !important; /* Elimina qualquer borda interna */
+        background: #05ac46 !important; /* O fundo do card AGORA É VERDE */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0);
+        overflow: hidden !important;
+        height: auto !important;
+    }
+
+    .antes-depois-imagem {
+        width: 100% !important;
+        height: 280px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important; /* Remove espaços vazios de inline-block */
+    }
+
+    .antes-depois-imagem img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important; /* Crucial para remover o "gap" inferior da imagem */
+        border-radius: 0 !important;
+    }
+
+    .antes-depois-info {
+        background-color: #05ac46 !important; /* Mesmo verde do fundo do card */
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 15px !important;
+        flex-grow: 1 !important; /* Ocupa todo o espaço restante */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 80px; /* Garante uma altura mínima para o verde */
+    }
+
+    .antes-depois-info h3 {
+        color: #fff !important;
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Etiquetas sobre a imagem */
+    .label-antes, .label-depois {
+        padding: 6px 15px !important;
+        font-size: 0.75rem !important;
+        z-index: 10;
+    }
+}
+
+@media (max-width: 900px) {
+    /* 1. Transformamos o container numa coluna única */
+    .about-container {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        height: auto !important;
+        gap: 50px !important; /* Espaço generoso entre Sócios e História */
+    }
+
+    /* 2. OS SÓCIOS: Centralizados no topo */
+    .socios-list {
+        order: 1 !important; /* Move para o topo */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centraliza horizontalmente */
+        width: 100% !important;
+        gap: 30px !important;
+    }
+
+    .socio-card {
+        width: 100% !important;
+        max-width: 300px !important; /* Garante que não fiquem muito largos */
+        text-align: center !important;
+        background: transparent !important;
+    }
+
+    .socio-image {
+        width: 160px !important;
+        height: 160px !important;
+        margin: 0 auto 15px !important; /* Centraliza a imagem no card */
+    }
+
+    /* 3. A HISTÓRIA: Logo abaixo dos sócios */
+    .about-content {
+        order: 2 !important; /* Aparece depois dos sócios */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .about-text {
+        max-height: none !important; /* Sem scroll interno: o texto flui na página */
+        overflow: visible !important;
+        text-align: justify !important; /* Melhora a leitura do texto longo */
+        padding: 10px !important;
+        background: #f9f9f9; /* Um fundo leve para destacar o texto */
+        border-radius: 10px;
+    }
+
+    /* 4. IMAGEM DE APOIO: Pode ficar no fim de tudo ou ser removida */
+    .about-image {
+        order: 3 !important;
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        height: 250px !important;
+        margin-top: 20px !important;
+    }
+}
+@media (max-width: 900px) {
+    /* 1. CONTAINER PRINCIPAL: Fluxo vertical total */
+    .sobre-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 60px !important; /* Espaço entre Sócios e História */
+        padding: 0 15px !important;
+        height: auto !important;
+    }
+
+    /* 2. SLIDES DOS SÓCIOS: Centralização e Visibilidade */
+    .sobre-slides {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centraliza tudo no meio */
+        text-align: center !important;
+    }
+
+    .slide {
+        display: none; /* Mantém a lógica de slides JS se existir */
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .slide.ativo {
+        display: flex !important; /* Mostra apenas o sócio ativo */
+    }
+
+    .slide img {
+        width: 220px !important; /* Tamanho otimizado para mobile */
+        height: 220px !important;
+        border-radius: 50% !important; /* Imagem circular para os sócios */
+        margin-bottom: 15px !important;
+        object-fit: cover !important;
+    }
+
+    /* Centralização dos botões/labels dos sócios */
+    .slide-labels {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-top: 20px !important;
+    }
+
+    /* 3. A NOSSA HISTÓRIA: Apresentação por baixo */
+    .sobre-historia {
+        display: flex !important;
+        flex-direction: column !important; /* Imagem em cima, texto em baixo */
+        gap: 20px !important; /* Espaço entre a imagem e o título */
+        align-items: center !important;
+    }
+
+    .sobre-historia img {
+        /* Removemos larguras fixas em % do desktop */
+        width: 100% !important; 
+        max-width: 350px !important; /* Evita que a imagem fique gigante em tablets */
+        
+        /* Removemos alturas fixas (causa do corte) */
+        height: auto !important; 
+        
+        /* Garante a proporção correta da foto original */
+        object-fit: contain !important; 
+        
+        /* Ajustes visuais */
+        border-radius: 15px !important;
+        margin: 0 auto 10px auto !important; /* Centraliza horizontalmente */
+        display: block !important;
+    }
+
+    .historia-texto {
+        width: 100% !important;
+        padding: 0 10px !important;
+    }
+    .historia-texto h3 {
+        text-align: center !important;
+        color: #05ac46 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .historia-texto p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 15px !important;
+        text-align: justify !important; /* Texto mais organizado */
+    }
+}
+/* =================================================
+   CTA FINAL - COMPACTAÇÃO EXTREMA PARA MOBILE
+   ================================================= */
+@media (max-width: 900px) {
+    /* 1. Reduz a caixa (container) */
+    .cta-trabalhar {
+        width: 92% !important; /* Define que a caixa ocupa 92% da largura */
+        margin: 20px auto !important; /* O 'auto' centraliza a caixa com margens iguais dos lados */
+        padding: 25px 15px !important; /* Espaço interno para o texto não colar na borda verde */
+        border-radius: 15px !important;
+    }
+
+    /* 2. Ajuste de margens para a secção "Quem Somos" se necessário */
+    .sobre-wrapper {
+        width: 92% !important;
+        margin: 0 auto !important;
+    }
+
+    /* 2. Reduz o texto (título e parágrafo) */
+    .cta-conteudo h2 {
+        font-size: 1.4rem !important; /* Metade do tamanho original */
+        margin-bottom: 0.8rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .cta-conteudo p {
+        font-size: 0.9rem !important; /* Texto mais pequeno e legível */
+        line-height: 1.4 !important;
+        margin-bottom: 1.2rem !important;
+        padding: 0 5px !important;
+    }
+
+    /* 3. Reduz o botão */
+    .cta-botao {
+        padding: 0.6rem 1.5rem !important; /* Botão mais curto */
+        font-size: 0.9rem !important;
+        width: auto !important;
+        display: inline-block !important;
+    }
+}

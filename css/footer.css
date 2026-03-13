@@ -1,0 +1,265 @@
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #000;
+    color: #fff;
+    margin-top: 4rem;
+    font-family: Arial, sans-serif;
+}
+
+/* GRID CONTROLADO */
+.footer-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 4% 0rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= COLUNA 1 · INSTALAÇÕES ================= */
+.footer-info {
+    align-items: flex-start; /* Força tudo para a esquerda */
+    text-align: left;
+}
+
+.footer-info h4 {
+    margin: 0 0 1.2rem 0;
+    font-size: 1.05rem;
+    padding-left: 25px;
+}
+
+.footer-link {
+    padding-left: 0px;
+    text-decoration: none;
+    color: #dce3ea;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.footer-phone-container {
+    width: 100%;
+    padding-right: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: -35px 0 0 0;
+}
+
+.footer-phone {
+    margin: 0;
+    padding: 0;
+    text-align: left; /* Garante alinhamento à esquerda */
+}
+
+.phone-number {
+    display: block;
+    font-size: 0.92rem;
+    color: #dce3ea;
+}
+
+.phone-obs {
+    display: block;
+    font-size: 0.72rem;
+    color: #9aa6b2;
+    margin-top: 2px;
+}
+
+/* ================= COLUNA 2 · EMAIL / WHATSAPP ================= */
+.footer-actions {
+    margin-top: 35px;
+    align-items: justify; /* Mantém ícones grandes no centro da coluna */
+    gap: 65px;
+}
+
+.footer-actions img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.25s ease;
+}
+
+.footer-actions img:hover {
+    transform: scale(1.1);
+}
+
+/* ================= COLUNA 3 · REDES SOCIAIS ================= */
+.footer-socials {
+    align-items: center;
+    padding-top: 0%; /* Mantém "Siga-nos" no centro da coluna */
+}
+
+.footer-socials h4 {
+    margin-bottom: 1.5rem;
+    align-items: justify
+}
+
+.box-redes-sociais.coluna {
+    flex-direction: column;
+    display: flex;
+    gap: 0px; /* Elimina espaço entre itens */
+    list-style: none;
+    padding: 0;
+    margin: -45px 0 0 0; /* Sobe a box conforme o teu pedido */
+}
+
+.box-redes-sociais.coluna li {
+    margin: 0; /* Remove margens automáticas da lista */
+    padding: 2px 0; /* Ajusta este valor (ex: 0) para colar totalmente */
+}
+
+.box-redes-sociais li a {
+    
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: justify;
+    padding-right: 0%;
+    text-decoration: none;
+}
+
+.box-redes-sociais .icon2 {
+    color: #262626;
+    font-size: 18px;
+    padding-right: 10%;
+}
+ul.box-redes-sociais li a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+ul.box-redes-sociais li[class] .icon2 a:hover::before { top: 0; }
+ul.box-redes-sociais li[class] a:hover .icon2 { color: #ffffff; transform: scale(1.1); }
+
+ul.box-redes-sociais li.facebook a::before { background: #3b5999; }
+ul.box-redes-sociais li.linkedin a::before { background: #0077b5; }
+ul.box-redes-sociais li.instagram a::before {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* ================= COLUNA 4 · CTA ================= */
+.footer-cta {
+    margin-top: 30px;
+    display: flex; /* Garante que o alinhamento flexível funcione */
+    flex-direction: column;
+    align-items: flex-end; /* Alinha Título, Texto e Botão à DIREITA */
+    text-align: right; /* Alinha as linhas de texto à direita */
+}
+
+.footer-cta h4 {
+    margin: 0 0 1.2rem 0;
+    width: 100%; /* Garante que o h4 ocupe a largura e respeite o text-align */
+}
+
+.cta-content {
+    width: 100%;
+}
+
+.footer-cta p {
+    text-align: right;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #dce3ea;
+}
+
+.btn-footer {
+    /* Removido o justify-content que não tinha efeito aqui */
+    margin-left: auto; /* ESTA É A CHAVE: Empurra o botão para a margem direita */
+    padding: 0.7rem 1.8rem;
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border-radius: 30px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-footer:hover {
+    background: #66ff00;
+    transform: translateY(-2px);
+}
+
+/* ================= FOOTER BOTTOM ================= */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #b9c6d3;
+    margin: 0;
+}
+.footer-bottom a {
+    color: #888; /* Ou a cor que usas no texto do footer */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #05ac46; /* Verde GuiLimpa ao passar o rato */
+    text-decoration: underline;
+}
+.livro-link-wrapper {
+    display: inline-flex;
+    align-items: center; /* Centraliza verticalmente a imagem com o texto */
+    gap: 10px; /* Espaço entre a imagem e o texto */
+    color: inherit;
+    text-decoration: underline;
+}
+
+.livro-icon {
+    height: 65px; /* Tamanho pequeno, mas perfeitamente legível */
+    width: auto;
+    display: block;
+}
+/* ================= RESPONSIVO (TELEMÓVEL) ================= */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .footer-info, .footer-cta, .footer-phone, .cta-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-cta p, .footer-cta h4 {
+        text-align: center; /* Volta ao centro no telemóvel para ficar bonito */
+    }
+
+    .btn-footer {
+        margin-left: unset; /* Remove o empurrão para a direita no telemóvel */
+        margin-right: unset;
+    }
+
+    .footer-phone-container {
+        align-items: center;
+    }
+    .livro-icon {
+        height: 35px; /* Um pouco menor em telas pequenas */
+    }
+}
+
+

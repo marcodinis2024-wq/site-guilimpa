@@ -1,0 +1,106 @@
+/* ================= PÁGINA DE POLÍTICAS ================= */
+
+.politicas-main {
+    padding-top: 100px; /* Espaço da Navbar */
+    background-color: #f9f9f9;
+}
+
+.politicas-header {
+    background-color:  #f9f9f9;
+    color: #000000;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.politicas-header h1 {
+    font-size: 2.5rem;
+    color: #05ac46; /* Verde GuiLimpa */
+    margin-bottom: 10px;
+}
+
+.politicas-content {
+    padding: 60px 0;
+}
+
+.politicas-content .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.politica-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.politica-box h2 {
+    color: #000;
+    border-bottom: 3px solid #05ac46;
+    display: inline-block;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+}
+
+.politica-box h2 i {
+    margin-right: 10px;
+    color: #05ac46;
+}
+
+.topico {
+    margin-bottom: 25px;
+}
+
+.topico h3 {
+    font-size: 1.2rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.topico p, .topico li {
+    color: #555;
+    line-height: 1.6;
+}
+
+.topico ul {
+    padding-left: 20px;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.last-update {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 20px;
+}
+#footer-placeholder {
+    background-color: #f8f9fa;
+    
+}
+body {
+    background-color: #f9f9f9;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .politica-box {
+        padding: 25px;
+    }
+    .politicas-header h1 {
+        font-size: 1.8rem;
+        padding-top: 0%;
+    }
+    .politicas-header {
+        padding: 0px 0;
+        margin-top: 0px;
+    }
+    .politicas-main {
+        padding-top: 0px; /* Remove o espaço da Navbar para telas menores */
+    }
+}

@@ -1,0 +1,433 @@
+/* ================= FULL WIDTH SERVIÇOS ================= */
+
+main.container {
+    padding-top: 80px;
+    max-width: 100% !important;
+    width: 100%;
+    padding: 12 0;
+    margin: 0;
+}
+
+/* ================= TÍTULO DA PÁGINA ================= */
+
+main.container > h1,
+main.container > p {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8%;
+    text-align: left;
+       
+}
+
+main.container > h1 {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+}
+
+main.container > p {
+    margin-bottom: 4rem;
+    font-size: x-large;
+}
+
+/* ================= BLOCO DE SERVIÇO ================= */
+
+.servico-bloco {
+  border-radius: 30PX;
+    width: 100%;
+    padding: 0rem 8%;
+    margin: 0;
+    background: #ffffff;
+    scroll-margin-top: 130px;
+        padding-bottom: 40px;
+         padding-top: 60px;
+}
+
+/* Alternância de fundo */
+.servico-bloco:nth-of-type(even) {
+    background: #f8f9fa;
+}
+
+/* ================= LAYOUT INTERNO ================= */
+
+.servico-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* ================= SLIDER ================= */
+
+/* ================= SLIDER TAMANHO FIXO ================= */
+
+.servico-slider {
+    position: relative;
+    width: 50%;
+    height: 500px; /* ALTURA FIXA */
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.slider-track {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantém proporção e corta excesso */
+    display: none;
+}
+
+.slider-track img.active {
+    display: block;
+}
+
+.servico-slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0.281);
+    border: none;
+    font-size: 1.rem;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.servico-slider button:hover {
+    background: rgba(0, 0, 0, 0);
+}
+
+.servico-slider .prev {
+    left: 15px;
+}
+
+.servico-slider .next {
+    right: 15px;
+}
+
+/* ================= CONTEÚDO ================= */
+
+.servico-conteudo {
+    width: 50%;
+}
+
+.servico-conteudo h2 {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    color: var(--color-primary);
+}
+
+.servico-descricao {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.servico-info {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.servico-info h4 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-primary);
+}
+
+.servico-tipos {
+    list-style: disc inside;
+}
+
+.servico-tipos li {
+    margin-bottom: 0.4rem;
+}
+
+#limpeza-em-altura .slider-track img {
+    object-position: center top;
+}
+#limpeza-final-obra .slider-track img {
+    object-position: center bottom;
+}
+
+/* 1. Reset Total para garantir que nada empurra o banner */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita scrolls laterais indesejados */
+}
+
+/* 2. Remove as bordas do container principal do site */
+main.container, .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* 3. Ajuste do Banner */
+.hero-services {
+    width: 100%;
+    height: 600px; /* Altura exata da tua imagem */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background: none; /* Removemos a cor preta de fundo */
+}
+
+.hero-services img {
+    width: 100vw;   /* Força a largura a ser a do ecrã inteiro */
+    height: 600px;  /* Mantém a altura fixa de 600px */
+    display: block;
+    object-fit: cover; /* Garante que a imagem estica sem deformar e cobre tudo */
+    object-position: center;
+    border: none;
+    outline: none;
+}
+/* ================= CTA TRABALHAR PREMIUM ================= */
+
+.cta-trabalhar {
+    margin: 6rem auto 4rem auto;
+    padding: 4.5rem 2rem;
+    max-width: 1200px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+
+    /* Gradiente verde elegante */
+    background: linear-gradient(135deg, #05ac46 0%, #04913b 100%);
+
+    /* Estado inicial para animação */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Classe ativada pelo JS */
+.cta-trabalhar.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* IMAGEM DE FUNDO */
+.cta-trabalhar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/images/imgcta/fundo.png") center/cover no-repeat;
+    opacity: 0.12;
+    z-index: 1;
+}
+
+/* Conteúdo acima da imagem */
+.cta-conteudo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.cta-conteudo h2 {
+    color: #ffffff;
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.cta-conteudo p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* BOTÃO */
+.cta-botao {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: #ffffff;
+    color: #05ac46;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-botao:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-3px);
+}
+
+/* =================================================
+   VERSÃO MOBILE CONSOLIDADA E CORRIGIDA
+   ================================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. HERO (Topo da Página) */
+    .hero-services, .hero-services img {
+        height: auto !important;
+        min-height: 200px !important;
+        margin-top: 35px !important;
+    }
+
+    /* 2. CONTAINER DO BLOCO E ESTRUTURA */
+    .servico-bloco {
+        padding: 30px 15px !important;
+        width: 100% !important;
+    }
+
+    .servico-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 20px !important;
+    }
+
+    /* 3. SLIDER / IMAGEM (Regra Geral) */
+    .servico-slider {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 220px !important;
+        border-radius: 15px !important;
+    }
+
+    .servico-slider img {
+        object-fit: cover !important;
+        object-position: center center; /* Padrão central */
+    }
+
+    /* 4. CONTEÚDO DE TEXTO */
+    .servico-conteudo {
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    .servico-conteudo h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+
+    .servico-conteudo p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        text-align: left !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 5. GRELHA DE INFO (Como é feito / Materiais) */
+    .servico-info {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 0 !important;
+        list-style: none !important;
+        margin-bottom: 20px !important;
+    }
+
+    .servico-info li {
+        font-size: 0.75rem !important;
+        background: #fdfdfd !important;
+        border: 1px solid #eee !important;
+        padding: 10px 5px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        min-height: 45px !important;
+        white-space: nowrap !important;
+    }
+
+    .servico-info h4 {
+        font-size: 1.2rem !important;
+    }
+
+    /* 6. LISTA DE APLICAÇÃO (Apartamentos, Casas...) EM LINHA */
+    .servico-conteudo ul:last-of-type {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 10px 0 !important;
+        border-top: 1px solid #eee;
+        list-style: none !important;
+    }
+
+    .servico-conteudo ul:last-of-type li {
+        font-size: 0.8rem !important;
+        color: #05ac46 !important;
+        font-weight: 600 !important;
+        flex: 1;
+        text-align: center;
+    }
+
+    .servico-conteudo ul:last-of-type li:not(:last-child) {
+        border-right: 1px solid #ddd;
+    }
+
+    /* 7. SECÇÃO TRABALHAR CONNOSCO (CTA) */
+    .cta-trabalhar {
+        padding: 3rem 1.5rem !important;
+        margin: 20px 10px !important;
+        border-radius: 20px !important;
+    }
+
+    .cta-conteudo h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .cta-conteudo p {
+        font-size: 0.95rem !important;
+    }
+
+    .cta-botao {
+        padding: 0.7rem 1.8rem !important;
+        min-width: 200px;
+    }
+
+    /* 8. AJUSTES ESPECÍFICOS DE IMAGEM (IDs) */
+
+    /* Limpeza em Altura - FOCO NO GUINDASTE */
+    #limpeza-altura .servico-slider {
+        height: 350px !important; 
+        overflow: hidden !important;
+    }
+
+    .slider-track img.img-guindaste {
+        object-fit: cover !important;
+        /* translateY(18%) empurra a foto para baixo para revelar a pessoa no topo */
+        
+        object-position: center top !important; 
+        display: block !important;
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Limpeza Pós-Obra - FOCO NO CHÃO */
+    #limpeza-final-obra .servico-slider img {
+        object-position: center bottom !important;
+    }
+
+    #limpeza-final-obra .servico-slider {
+        margin-top: 20px !important;
+    }
+
+    /* Limpeza de Vidros - FOCO NA DIREITA */
+    #limpeza-vidros .servico-slider img {
+        object-position: right center !important;
+    }
+
+} /* FIM DA MEDIA QUERY */

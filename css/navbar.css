@@ -1,0 +1,320 @@
+/* ================= NAVBAR ================= */ 
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: #000000;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+}
+
+/* LOGO - Esquerda */
+.navbar-logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-logo img {
+    height: 80px;
+    display: block;
+}
+
+/* LINKS - Centro */
+.navbar-links {
+    flex: 2;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================= LINKS PRINCIPAIS ================= */
+.navbar-links > li > a,
+.navbar-links > li > .dropdown-toggle {
+    color: #fff;
+    font-family: 'Arial', sans-serif; /* Fonte limpa e nítida */
+    font-size: 25px;                  /* Tamanho uniforme */
+    font-weight: 600;                 /* Negrito leve */
+    text-decoration: none;
+    padding: 10px 12px;               /* Espaçamento interno consistente */
+    transition: all 0.3s ease;
+    white-space: nowrap;
+padding-left: 45px;
+    /* Reset para dropdown buttons */
+    background: transparent;
+    border: none;
+}
+
+/* Hover / underline */
+.navbar-links > li > a::after,
+.navbar-links > li > .dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #66ff00;
+    transition: width 0.3s ease;
+}
+
+.navbar-links > li > a:hover::after,
+.navbar-links > li > .dropdown-toggle:hover::after {
+    width: 100%;
+}
+
+/* BOTÃO CTA - Direita */
+.navbar-cta {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-btn {
+    padding: 0.7rem 1.6rem;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.navbar-btn:hover {
+    transform: translateY(-2px);
+    background: #05ac46;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+/* ================= DROPDOWNS ESTRUTURA ================= */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #05ac46;
+    border-radius: 12px;
+    padding: 1.5rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    /* Limita a altura do menu para não sair do ecrã do laptop */
+    /* 100vh (altura total) menos 120px (espaço da navbar + margem de segurança) */
+    max-height: calc(100vh - 120px) !important;
+    
+    /* Ativa o scroll vertical apenas se o conteúdo exceder a altura acima */
+    overflow-y: auto !important;
+    overflow-x: hidden;
+
+    /* Estilização da barra de scroll para ser discreta e condizer com a marca */
+    scrollbar-width: thin;
+    scrollbar-color: #05ac46 #222;
+}
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 0 8px 8px 0;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #05ac46;
+    border-radius: 10px;
+}
+.nav-item.active .dropdown-menu {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.7rem 1.5rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #66ff00;
+}
+
+/* ================= GERAL DROPDOWN (CABEÇALHO) ================= */
+.dropdown-header {
+    grid-column: 1 / -1;
+    color: #66ff00;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0 1.5rem;
+    margin-bottom: 15px;
+    margin-top: -5px;
+    display: block;
+}
+
+.dropdown-divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* ================= REDES SOCIAIS ================= */
+.container-redes, .container-redes-geral {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+@media (min-width: 901px) {
+    .nav-item.dropdown[data-dropdown="home-dropdown"] .dropdown-menu li.container-redes-geral {
+        grid-column: 1 / -1; 
+    }
+}
+
+ul.box-redes-sociais {
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-content: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+ul.box-redes-sociais li[class] a {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.4s ease;
+    padding-right: 2px;
+}
+
+ul.box-redes-sociais li a .icon {
+    font-size: 22px;
+    color: #262626;
+    z-index: 3;
+    display: flex;
+    margin-right:20px ;
+}
+
+ul.box-redes-sociais li[class] a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+ul.box-redes-sociais li[class] a:hover::before { top: 0; }
+ul.box-redes-sociais li[class] a:hover .icon { color: #ffffff; transform: scale(1.1); }
+
+ul.box-redes-sociais li.facebook a::before { background: #3b5999; }
+ul.box-redes-sociais li.linkedin a::before { background: #0077b5; }
+ul.box-redes-sociais li.instagram a::before {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* ================= CONTACTOS ================= */
+.container-contactos {
+    min-width: 320px;
+}
+
+.item-texto a {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* ================= RESPONSIVIDADE ================= */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.navbar-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+@media (min-width: 901px) {
+    .nav-item.dropdown[data-dropdown="home-dropdown"] .dropdown-menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        padding: 2rem;
+        min-width: 700px;
+    }
+
+    .nav-item.dropdown[data-dropdown="servicos"] .dropdown-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        min-width: 450px;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar-links, .navbar-cta { display: none; }
+    .navbar-toggle { display: flex; }
+    .navbar-container { justify-content: space-between; }
+    
+    .navbar.active .navbar-links {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background: #05ac46;
+        flex-direction: column;
+        padding: 2rem;
+        display: flex;
+    }
+}

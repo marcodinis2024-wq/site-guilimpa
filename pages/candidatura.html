@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recrutamento | GuiLimpa</title>
+    
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css"> <link rel="stylesheet" href="../css/footer.css">
+    
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="stylesheet" href="../css/candidatura.css">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div> 
+
+    <main class="candidatura-main">
+        <section class="candidatura-hero">
+            <div class="container">
+                <h1>Junte-se à Equipa de Alta Performance</h1>
+                <p>Na Guilimpa, o nosso sucesso é o reflexo da integridade e dedicação de cada colaborador.</p>
+            </div>
+        </section>
+
+        <section class="candidatura-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Excelência no Serviço</h3>
+                        <p>Procuramos profissionais detalhistas que encarem cada limpeza como um cartão de visita da nossa qualidade.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Integridade e Confiança</h3>
+                        <p>A honestidade é inegociável. Valorizamos a ética no acesso a espaços privados e empresariais.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Formação Contínua</h3>
+                        <p>Avaliamos a capacidade de aprendizagem sobre novos produtos, máquinas industriais e normas de segurança.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-wrapper">
+                    <h2>Formulário de Candidatura</h2>
+                    <p>Preencha os dados abaixo e anexe os seus documentos (Máximo total 10MB).</p>
+
+                    <form action="https://usebasin.com/f/c4ee5559f414" method="POST" enctype="multipart/form-data" id="formCandidatura">
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" name="nome" id="nome" required placeholder="Escreva o seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email de Contacto *</label>
+                                <input type="email" name="email" id="email" required placeholder="seuemail@exemplo.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="telefone">Telemóvel *</label>
+                                <input type="tel" name="telefone" id="telefone" required placeholder="912 345 678">
+                            </div>
+                            <div class="form-group">
+                                <label for="localidade">Localidade de Residência *</label>
+                                <input type="text" name="localidade" id="localidade" required placeholder="Ex: Marinha Grande">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experiencia">Resumo da Experiência Profissional</label>
+                            <textarea name="experiencia" id="experiencia" rows="4" placeholder="Fale-nos das áreas onde já trabalhou..."></textarea>
+                        </div>
+
+                        <div class="file-uploads">
+                            <div class="file-item">
+                                <label for="cv">Currículo (CV) * (Máximo 5MB)</label>
+                                <input type="file" name="curriculo" id="cv" accept=".pdf,.doc,.docx" required>
+                                <span>Formatos: PDF ou Word</span>
+                            </div>
+                            <div class="file-item">
+                                <label for="certificados">Certificados / Diplomas (Total anexos: 10MB)</label>
+                                <input type="file" name="certificados[]" id="certificados" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                                <span>Pode anexar vários ficheiros</span>
+                            </div>
+                        </div>
+
+                        <div class="form-footer">
+                            <p class="nota">* Campos de preenchimento obrigatório</p>
+                            <button type="submit" class="btn-enviar">Submeter Candidatura</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <script src="../js/main.js"></script>
+
+    <script>
+        const cvInput = document.getElementById('cv');
+        const extraInput = document.getElementById('certificados');
+
+        // Validação individual do CV (5MB)
+        cvInput.onchange = function() {
+            if(this.files && this.files[0]) {
+                const fileSize = this.files[0].size;
+                if(fileSize > 5242880) { // 5MB em bytes
+                    alert("O ficheiro do Currículo é demasiado grande! Por favor, reduza o tamanho (Máximo 5MB).");
+                    this.value = ""; 
+                }
+            }
+        };
+
+        // Validação acumulada dos Certificados (8MB para sobrar para o CV)
+        extraInput.onchange = function() {
+            if(this.files) {
+                let totalSize = 0;
+                for (let i = 0; i < this.files.length; i++) {
+                    totalSize += this.files[i].size;
+                }
+                
+                if(totalSize > 8388608) { // 8MB em bytes
+                    alert("O total dos certificados ultrapassa o limite permitido (8MB). Por favor, anexe ficheiros mais leves.");
+                    this.value = ""; 
+                }
+            }
+        };
+    </script>
+</body>
+</html>

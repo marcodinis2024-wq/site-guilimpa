@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUI LIMPA | Orçamentos</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="/css/whatsapp.css"> 
+
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <a href="https://wa.me/351917334536" class="whatsapp-fixed" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <main>
+        <section class="orcamento-explicativo">
+            <div class="orcamento-container">
+                <div class="orcamento-imagem">
+                    <img src="../assets/images/orcamento1.jpg" alt="Processo de Orçamento GuiLimpa">
+                </div>
+
+                <div class="orcamento-conteudo">
+                    <span class="tag-verde">TRANSPARÊNCIA E RIGOR</span>
+                    <h2>Como Elaboramos o Seu Orçamento</h2>
+                    <p>Na <strong>Guilimpa</strong>, cada orçamento é personalizado. Não acreditamos em soluções genéricas, por isso analisamos diversos parâmetros para garantir o preço mais justo e a máxima eficiência.</p>
+                    
+                    <div class="parametros-grid">
+                        <div class="parametro-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <h4>Dimensão do Espaço</h4>
+                                <p>A área total (m²) é a base para o cálculo de tempo e recursos.</p>
+                            </div>
+                        </div>
+                        <div class="parametro-item">
+                            <i class="fas fa-layer-group"></i>
+                            <div>
+                                <h4>Tipo de Superfícies</h4>
+                                <p>Identificamos os materiais (vidro, pedra, carpete) para usar os produtos adequados.</p>
+                            </div>
+                        </div>
+                        <div class="parametro-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Periodicidade</h4>
+                                <p>Serviços pontuais ou manutenção regular influenciam o valor final.</p>
+                            </div>
+                        </div>
+                        <div class="parametro-item">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <h4>Equipamentos Necessários</h4>
+                                <p>Avaliamos se é necessário uso de máquinas industriais ou trabalho em altura.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ciclo-comunicacao">
+                        <h3>O Nosso Ciclo de Atendimento</h3>
+                        <div class="ciclo-passos">
+                            <div class="passo">
+                                <span class="numero">1</span>
+                                <p><strong>Dep. Comercial:</strong> Contacto inicial e reunião para levantamento de necessidades.</p>
+                            </div>
+                            <div class="passo">
+                                <span class="numero">2</span>
+                                <p><strong>Dep. Financeiro:</strong> Avaliação técnica rigorosa e elaboração da proposta.</p>
+                            </div>
+                            <div class="passo destaque">
+                                <i class="fas fa-bolt"></i>
+                                <p><strong>Resposta Rápida:</strong> Receba o seu orçamento final em <strong>24 a 48 Horas</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="orcamento-acao">
+                        <a href="#form-ancora" class="btn-primary">Preencher Formulário Abaixo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacto-pagina" id="form-ancora">
+            <h1>Pedido de Orçamento</h1>
+            <p>Preencha os detalhes abaixo para receber uma proposta personalizada.</p>
+
+            <form class="form-contacto" action="https://usebasin.com/f/9c52adfae963" method="POST">
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nome">Nome / Apelido*</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="tipo-cliente">Sou*</label>
+                        <select id="tipo-cliente" name="tipo-cliente" required onchange="toggleEmpresaFields()">
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="particular">Particular</option>
+                            <option value="empresa">Empresa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="campos-empresa" style="display: none; background: #f4f4f4; padding: 25px; border-radius: 12px; margin-bottom: 25px; border-left: 5px solid #05ac46;">
+                    <div class="input-group" style="margin-bottom: 15px;">
+                        <label for="nome-empresa">Nome da Empresa*</label>
+                        <input type="text" id="nome-empresa" name="nome_empresa">
+                    </div>
+                    <div class="form-row" style="margin-bottom: 15px;">
+                        <div class="input-group">
+                            <label for="nif-empresa">NIF da Empresa*</label>
+                            <input type="text" id="nif-empresa" name="nif_empresa">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="morada-empresa">Morada*</label>
+                        <input type="text" id="morada-empresa" name="morada_empresa">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefone">Telefone*</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="910 000 000" required>
+                    </div>
+                </div>
+
+                <label for="servico">Serviço desejado*</label>
+                <select id="servico" name="servico" required>
+                    <option value="" disabled selected>Selecione o serviço</option>
+                    <option value="Limpeza Final de Obra">Limpeza Final de Obra</option>
+                    <option value="Limpeza Industrial">Limpeza Industrial</option>
+                    <option value="Limpeza na área da saúde">Limpeza na área da saúde</option>
+                    <option value="Limpeza em altura">Limpeza em altura</option>
+                    <option value="Limpeza em parques de estacionamento">Limpeza em parques de estacionamento</option>
+                    <option value="Limpeza nos serviços públicos e privados">Limpeza nos serviços públicos e privados</option>
+                    <option value="Limpeza na área de ensino">Limpeza na área de ensino</option>
+                    <option value="Limpeza nas áreas comerciais">Limpeza nas áreas comerciais</option>
+                </select>
+
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" name="assunto" placeholder="Ex: Orçamento urgente">
+
+                <label for="mensagem">Mensagem / Observações*</label>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva os detalhes..." required></textarea>
+
+                <button type="submit" class="btn-primary">Enviar Pedido de Orçamento</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function toggleEmpresaFields() {
+            const select = document.getElementById('tipo-cliente');
+            const camposEmpresa = document.getElementById('campos-empresa');
+            const inputs = camposEmpresa.querySelectorAll('input');
+
+            if (select.value === 'empresa') {
+                camposEmpresa.style.display = 'block';
+                inputs.forEach(input => input.setAttribute('required', 'true'));
+            } else {
+                camposEmpresa.style.display = 'none';
+                inputs.forEach(input => {
+                    input.removeAttribute('required');
+                    input.value = '';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+/* ================= SOBRE PAGE ================= */
+
+.sobre-historia-pagina {
+   
+  padding-top: 20px; /* aumenta o espaço acima da seção */
+
+
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sobre-historia-pagina h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.historia-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.historia-wrapper img {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.historia-texto {
+    max-width: 600px;
+    text-align: left;
+}
+
+.historia-texto p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+/* ================= VALORES - CARDS (LADO A LADO) ================= */
+
+.valores {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.valores-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Garante que todos tenham a mesma altura */
+    flex-wrap: nowrap; /* Impede que quebrem para a linha de baixo no desktop */
+    gap: 1.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.valor-item {
+    flex: 1; /* Faz com que os 4 dividam o espaço igualmente */
+    min-width: 200px; /* Largura mínima para não ficarem esmagados */
+    height: 320px;
+    background-color: transparent;
+}
+
+.valor-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.valor-item:hover .valor-card-inner {
+    transform: rotateY(180deg);
+}
+
+.valor-card-front, .valor-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.valor-card-front {
+    background-color: #ffffff;
+    color: #05ac46;
+}
+
+.valor-card-front i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.valor-card-back {
+    background-color: #05ac46;
+    color: white;
+    transform: rotateY(180deg);
+}
+.valor-card-back h3 {
+    color: white;
+}
+/* RESPONSIVIDADE: No telemóvel eles voltam a empilhar */
+@media (max-width: 1024px) {
+    .valores-wrapper {
+        flex-wrap: wrap; /* Permite quebrar em ecrãs pequenos */
+    }
+    
+    .valor-item {
+        flex: 1 1 45%; /* Ficam 2 por linha em tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .valor-item {
+        flex: 1 1 100%; /* Fica 1 por linha em telemóveis */
+    }
+}
+
+/* ================= EQUIPA - ESTRUTURA FIXA 3 E 4 ================= */
+
+/* ================= EQUIPA - ESTRUTURA FIXA 3 E 4 (+5% SIZE) ================= */
+
+.equipa-estatica {
+    margin-top: 80px;
+    padding: 4.2rem 1.5rem; /* Aumento de ~5% no respiro vertical */
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Contentor Geral - Alargado para suportar o aumento dos cards */
+.equipa-container-geral {
+    max-width: 1320px; 
+    margin: 0 auto;
+}
+
+/* LINHA DE CIMA (3 Cards) */
+.linha-top {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Gap ligeiramente maior */
+    margin-bottom: 35px;
+}
+
+.linha-top .equipa-card {
+    flex: 0 1 calc(33.33% - 25px); 
+    max-width: 340px; /* Aumentado 5% */
+}
+
+/* LINHA DE BAIXO (4 Cards) */
+.equipa-grid {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 18px; 
+    width: 100%;
+}
+
+.equipa-grid .equipa-card {
+    flex: 0 1 calc(25% - 18px);
+    max-width: 285px; /* Aumentado 5% para manter os 4 alinhados */
+}
+
+/* ESTILO GLOBAL DO CARD */
+.equipa-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 2rem 1.2rem; /* Aumento de 5% no preenchimento */
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.equipa-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+.equipa-card img {
+    width: 175px;  /* Aumentado de 165px para 175px (~5%) */
+    height: 175px; 
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--color-primary); /* Borda ligeiramente mais robusta */
+    margin-bottom: 1.2rem;
+}
+
+.equipa-card h4 {
+    font-size: 1.35rem; /* Aumento proporcional */
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+}
+
+.equipa-card span {
+    display: block;
+    font-size: 1.05rem; /* Aumento proporcional */
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+}
+
+.equipa-card p {
+    font-size: 0.92rem; /* Leitura levemente maior */
+    line-height: 1.5;
+    color: var(--color-text);
+}
+/* ================= CTA TRABALHAR PREMIUM ================= */
+
+.cta-trabalhar {
+    margin: 6rem auto 4rem auto;
+    padding: 4.5rem 2rem;
+    max-width: 1200px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+
+    /* Gradiente verde elegante */
+    background: linear-gradient(135deg, #05ac46 0%, #04913b 100%);
+
+    /* Estado inicial para animação */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Classe ativada pelo JS */
+.cta-trabalhar.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* IMAGEM DE FUNDO */
+.cta-trabalhar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/images/imgcta/fundo.png") center/cover no-repeat;
+    opacity: 0.12;
+    z-index: 1;
+}
+
+/* Conteúdo acima da imagem */
+.cta-conteudo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.cta-conteudo h2 {
+    color: #ffffff;
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.cta-conteudo p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* BOTÃO */
+.cta-botao {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: #ffffff;
+    color: #05ac46;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-botao:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-3px);
+}
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    /* 1. REMOVER ESPAÇOS DA PÁGINA E SECÇÃO */
+    .sobre-historia-pagina {
+        padding-bottom: 0 !important; /* Retira espaço abaixo da história */
+    }
+
+    .equipa-guilimpa {
+        padding-top: 0 !important;    /* Remove o respiro superior da equipa */
+        margin-top: -40px !important;  /* Puxa a secção inteira para cima */
+    }
+
+    /* 2. REFORÇAR O TÍTULO */
+    .equipa-guilimpa h2 {
+        margin-top: 0 !important;     /* Garante que o H2 não tem margem própria */
+        padding-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+        font-size: 2rem !important;
+    }
+
+    /* 3. MANTER CARDS GRANDES E NÍTIDOS (Conforme gostaste) */
+    .linha-top, 
+    .equipa-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+    }
+
+    .equipa-card {
+        width: 85% !important;
+        max-width: 340px !important;
+        padding: 35px 20px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    .equipa-card img {
+        width: 170px !important; /* Tamanho grande para nitidez */
+        height: 170px !important;
+        border: 4px solid #05ac46 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .equipa-card h3 {
+        font-size: 1.4rem !important;
+    }
+    .equipa-estatica {
+                padding-top: 0px;
+    }
+    /* ================= SEÇÃO VALORES (GRID 2x2) ================= */
+    
+    .valores-guilimpa {
+        padding: 3rem 10px !important;
+    }
+
+    .valores-wrapper {
+        display: grid !important;
+        /* Cria duas colunas de tamanho igual */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 15px !important;
+        max-width: 100% !important;
+        justify-items: center;
+    }
+
+    .valor-card {
+        width: 100% !important;
+        /* Altura fixa menor para manter a simetria no 2x2 */
+        height: 180px !important; 
+        perspective: 1000px;
+    }
+
+    /* Ajuste do conteúdo interno dos cards de valores */
+    .valor-card-front, 
+    .valor-card-back {
+        padding: 15px 10px !important;
+    }
+
+    .valor-card-front i {
+        font-size: 2rem !important; /* Ícones ligeiramente menores */
+        margin-bottom: 10px !important;
+    }
+
+    .valor-card-front h3, 
+    .valor-card-back h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .valor-card-back p {
+        font-size: 0.75rem !important; /* Texto menor para caber no card pequeno */
+        line-height: 1.3 !important;
+    }
+    
+    .cta-trabalhar {
+        padding: 3rem 1.5rem !important; /* Reduzimos drasticamente a altura */
+        margin: 20px 10px !important; /* Pequena margem externa para não colar nas bordas */
+        border-radius: 20px !important;
+    }
+
+    .cta-conteudo {
+        max-width: 100% !important;
+    }
+
+    .cta-conteudo h2 {
+        font-size: 1.8rem !important; /* Título mais contido */
+        margin-bottom: 1rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .cta-conteudo p {
+        font-size: 0.95rem !important; /* Texto mais discreto e profissional */
+        line-height: 1.5 !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 10px !important; /* Margens internas para o texto não bater nos cantos */
+    }
+
+    /* BOTÃO MAIS REFINADO */
+    .cta-botao {
+        padding: 0.7rem 1.8rem !important;
+        font-size: 1rem !important;
+        width: auto !important; /* Não precisa de ocupar a largura toda se o texto for curto */
+        min-width: 200px;
+    }
+}
