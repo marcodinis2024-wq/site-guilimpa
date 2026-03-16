@@ -874,7 +874,7 @@
         font-size: 0.9rem !important;
         display: inline-block !important;
         width: auto !important;
-        left: 12% !important;
+        left: 15% !important;
         transform: translateX(-50%) !important; /* Centraliza o segundo botão também */
     }
 }
