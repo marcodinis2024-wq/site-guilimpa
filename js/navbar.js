@@ -27,66 +27,60 @@ document.addEventListener("DOMContentLoaded", () => {
     /**
      * FUNÇÃO PRINCIPAL: Lógica de Interação
      */
-    function initNavbar() {
-        const navLinks = document.querySelector(".navbar-links");
-        const toggleBtn = document.getElementById("navbarToggle") || document.querySelector('.navbar-toggle');
-        const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+   function initNavbar() {
+    const navLinks = document.querySelector(".navbar-links");
+    const toggleBtn = document.getElementById("navbarToggle") || document.querySelector('.navbar-toggle');
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
 
-        /* --- CONTROLO DO MENU MOBILE (Hambúrguer) --- */
-        if (toggleBtn) {
-            toggleBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                navLinks.classList.toggle("active");
-            });
-        }
+    /* --- CONTROLO DO MENU MOBILE (Hambúrguer) --- */
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle("active");
+        });
+    }
 
-        /* --- LÓGICA DE SUBMENUS (Dropdowns) --- */
-        // Esta lógica resolve o seu problema: o menu fixa ao clicar
-        dropdowns.forEach(drop => {
-            const btn = drop.querySelector(".dropdown-toggle");
+    /* --- LÓGICA DE SUBMENUS (Dropdowns) --- */
+    dropdowns.forEach(drop => {
+        const btn = drop.querySelector(".dropdown-toggle");
 
-            if (btn) {
-                btn.addEventListener("click", (e) => {
-                    // Impede o salto de página e a propagação para o document
+        if (btn) {
+            btn.addEventListener("click", (e) => {
+                // SÓ EXECUTA O CLIQUE SE FOR MOBILE (Ecrã até 900px)
+                if (window.innerWidth <= 900) {
                     e.preventDefault(); 
                     e.stopPropagation();
 
                     const isActive = drop.classList.contains("active");
 
-                    // 1. Fecha outros dropdowns que possam estar abertos (limpeza)
                     dropdowns.forEach(d => {
                         if (d !== drop) d.classList.remove("active");
                     });
 
-                    // 2. Alterna o estado do menu clicado (Fixa/Desafixa)
-                    if (isActive) {
-                        drop.classList.remove("active");
-                    } else {
-                        drop.classList.add("active");
-                    }
-                });
-            }
-        });
-
-        /* --- FECHAR TUDO AO CLICAR FORA --- */
-        // Se clicar em qualquer parte do site que não seja a navbar, os menus fecham
-        document.addEventListener("click", (e) => {
-            if (!e.target.closest(".navbar")) {
-                navLinks?.classList.remove("active");
-                dropdowns.forEach(d => d.classList.remove("active"));
-            }
-        });
-
-        /* --- FECHAR AO CLICAR NUM LINK DE SERVIÇO --- */
-        // Garante que ao escolher um serviço, o menu não fica aberto sobre a página
-        const menuLinks = document.querySelectorAll(".dropdown-menu a, .navbar-links a:not(.dropdown-toggle)");
-        menuLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                navLinks?.classList.remove("active");
-                dropdowns.forEach(d => d.classList.remove("active"));
+                    drop.classList.toggle("active");
+                }
+                // No PC (> 900px), não fazemos nada aqui para deixar o CSS trabalhar com o Hover
             });
+        }
+    });
+
+    /* --- FECHAR TUDO AO CLICAR FORA --- */
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".navbar")) {
+            navLinks?.classList.remove("active");
+            dropdowns.forEach(d => d.classList.remove("active"));
+        }
+    });
+
+    /* --- FECHAR AO CLICAR NUM LINK DE SERVIÇO --- */
+    const menuLinks = document.querySelectorAll(".dropdown-menu a, .navbar-links a:not(.dropdown-toggle)");
+    menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks?.classList.remove("active");
+            dropdowns.forEach(d => d.classList.remove("active"));
         });
-    }
+    });
+}
 
     /**
      * FUNÇÃO DE SCROLL: Ajuste para a Navbar Fixa

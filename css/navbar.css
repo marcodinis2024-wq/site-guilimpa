@@ -300,6 +300,26 @@ ul.box-redes-sociais li.instagram a::before {
         grid-template-columns: repeat(2, 1fr);
         min-width: 450px;
     }
+    /* ATIVAÇÃO POR HOVER NO DESKTOP */
+    .nav-item.dropdown:hover > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+        display: block; /* Garante a exibição */
+    }
+
+    /* Se for o menu de serviços ou home que usam grid, mantemos o grid no hover */
+    .nav-item.dropdown[data-dropdown="servicos"]:hover > .dropdown-menu,
+    .nav-item.dropdown[data-dropdown="home-dropdown"]:hover > .dropdown-menu {
+        display: grid !important;
+    }
+
+    /* Ponte de segurança: evita que o menu feche ao mover o rato para baixo */
+    .nav-item.dropdown {
+        padding-bottom: 15px; 
+        margin-bottom: -15px;
+    }
 }
 
 @media (max-width: 900px) {
